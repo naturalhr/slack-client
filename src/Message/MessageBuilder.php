@@ -45,12 +45,14 @@ class MessageBuilder
      *
      * @param string $text The message body text.
      * @param bool $markdown Enable or disable Markdown parsing of the text.
+     * @param string|null $blocks Optional JSON encoded array containing blocks element
      * @return $this
      */
-    public function setText($text, $markdown = true)
+    public function setText($text, $markdown = true, $blocks=null)
     {
         $this->data['text'] = $text;
         $this->data['mrkdwn'] = $markdown;
+        $this->data['blocks'] = $blocks;
         return $this;
     }
 
