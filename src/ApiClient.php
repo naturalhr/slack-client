@@ -335,13 +335,14 @@ class ApiClient
      * Sends a regular text message to a given channel.
      *
      * @param  string                          $text    The message text.
+     * @param  string|null                     $blocks  Blocks JSON array.
      * @param  ChannelInterface                $channel The channel to send the message to.
      * @return \React\Promise\PromiseInterface
      */
-    public function send($text, ChannelInterface $channel)
+    public function send($text, ChannelInterface $channel, $blocks=null)
     {
         $message = $this->getMessageBuilder()
-                        ->setText($text)
+                        ->setText($text,true,$blocks)
                         ->setChannel($channel)
                         ->create();
 
