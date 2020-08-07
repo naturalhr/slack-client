@@ -360,6 +360,7 @@ class ApiClient
     {
         $options = [
             'text' => $message->getText(),
+            'blocks' => $message->getBlocks(),
             'channel' => $message->data['channel'],
             'as_user' => true,
         ];

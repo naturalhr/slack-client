@@ -18,6 +18,16 @@ class Message extends ClientObject
         return $this->data['text'];
     }
 
+     /**
+     * Gets the blocks content.
+     *
+     * @return string
+     */
+    public function getBlocks()
+    {
+        return $this->data['blocks'];
+    }
+
     /**
      * Checks if Markdown is enabled for the message text.
      *
