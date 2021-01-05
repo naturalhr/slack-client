@@ -56,12 +56,12 @@ class Channel extends ClientObject implements ChannelInterface
     {
         $memberPromises = [];
         $this->client->apiCall('conversations.members', [
-            'channel' => $this->getId(),
+            'channel' => $this->getId()
         ])->then(function ($response) {
             foreach ($response['members'] as $memberId) {
                 $memberPromises[] = $this->client->getUserById($memberId);
             }
-        }
+        });
 
         return Promise\all($memberPromises);
     }
