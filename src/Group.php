@@ -15,7 +15,7 @@ class Group extends Channel
      */
     public function rename($name)
     {
-        return $this->client->apiCall('groups.rename', [
+        return $this->client->apiCall('conversations.rename', [
             'channel' => $this->getId(),
             'name' => $name,
         ])->then(function () use ($name) {
@@ -33,7 +33,7 @@ class Group extends Channel
      */
     public function setPurpose($text)
     {
-        return $this->client->apiCall('groups.setPurpose', [
+        return $this->client->apiCall('conversations.setPurpose', [
             'channel' => $this->getId(),
             'purpose' => $text,
         ])->then(function () use ($text) {
@@ -51,7 +51,7 @@ class Group extends Channel
      */
     public function setTopic($text)
     {
-        return $this->client->apiCall('groups.setTopic', [
+        return $this->client->apiCall('conversations.setTopic', [
             'channel' => $this->getId(),
             'topic' => $text,
         ])->then(function () use ($text) {
@@ -67,7 +67,7 @@ class Group extends Channel
      */
     public function archive()
     {
-        return $this->client->apiCall('groups.archive', [
+        return $this->client->apiCall('conversations.archive', [
             'channel' => $this->getId(),
         ])->then(function () {
             $this->data['is_archived'] = true;
@@ -81,7 +81,7 @@ class Group extends Channel
      */
     public function unarchive()
     {
-        return $this->client->apiCall('groups.unarchive', [
+        return $this->client->apiCall('conversations.unarchive', [
             'channel' => $this->getId(),
         ])->then(function () {
             $this->data['is_archived'] = false;
@@ -97,7 +97,7 @@ class Group extends Channel
      */
     public function inviteUser(User $user)
     {
-        return $this->client->apiCall('groups.invite', [
+        return $this->client->apiCall('conversations.invite', [
             'channel' => $this->getId(),
             'user' => $user->getId(),
         ])->then(function () use ($user) {
@@ -114,7 +114,7 @@ class Group extends Channel
      */
     public function kickUser(User $user)
     {
-        return $this->client->apiCall('groups.kick', [
+        return $this->client->apiCall('conversations.kick', [
             'channel' => $this->getId(),
             'user' => $user->getId(),
         ])->then(function () use ($user) {

@@ -41,7 +41,7 @@ class DirectMessageChannel extends ClientObject implements ChannelInterface
      */
     public function close()
     {
-        return $this->client->apiCall('im.close', [
+        return $this->client->apiCall('conversations.close', [
             'channel' => $this->getId(),
         ])->then(function ($response) {
             return !isset($response['no_op']);
